@@ -10,7 +10,7 @@
 
 ### **_Description_**
 
-The Speedy Fingers is an interactive typing test platform that helps users evaluate their typing speed (in words per minute) and measure the accuracy of their keystrokes in real-time.
+The Speedy Fingers is an interactive typing test game that helps users evaluate their typing speed (in words per minute) and measure the accuracy of their keystrokes in real-time.
 
 ---
 
