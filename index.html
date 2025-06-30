@@ -3,11 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <script defer type="module" src="./script.js"></script> -->
     <script defer src="./script.js"></script>
     <link rel="stylesheet" href="./style.css" />
     <title>Speedy Fingers</title>
   </head>
   <body>
-    <h1>Speedy Fingers</h1>
+    <header></header>
+    <main>
+      <div>
+        <label for="">Select the time: </label>
+        <select name="time" id="time">
+          <option value="1">1 minute</option>
+          <option value="5">5 minute</option>
+          <option value="10">10 minute</option>
+        </select>
+      </div>
+      <br />
+      <br />
+      <div>
+        <label for="">Select the difficulty: </label>
+        <select name="difficulty" id="difficulty">
+          <option value="easy">Easy</option>
+          <option value="medium">medium</option>
+          <option value="hard">Hard</option>
+        </select>
+      </div>
+      <br />
+      <br />
+      <input type="button" value="Start" id="start-btn" />
+    </main>
   </body>
 </html>
