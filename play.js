@@ -29,4 +29,24 @@ class Play extends Level {
   getAccuracy() {
     return this.accuracy
   }
+
+  // ************************ Methods ************************ //
+  timeCountDown() {
+    let time = this.time
+    let timerID
+    const timer = () => {
+      console.log(time) // display the timer
+      time--
+      if (time === 0) clearInterval(timerID)
+    }
+    timerID = setInterval(timer, 1000) //starts timer
+  }
+
+  calculateSpeedWPM(countCorrectedWords, timeInMinutes) {
+    return countCorrectedWords / timeInMinutes
+  }
+
+  calculateAccuracy(countCorrectedChars, timeInMinutes) {
+    return countCorrectedChars / timeInMinutes
+  }
 }
