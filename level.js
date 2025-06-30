@@ -39,4 +39,21 @@ export default class Level {
   getHardSentences() {
     return this.hardSentences
   }
+
+  // ************************ Methods ************************ //
+  randomSentence() {
+    if (this.difficulty === 'easy') {
+      let index = Math.floor(Math.random() * this.easySentences.length)
+      return this.easySentences[index]
+    } else if (this.difficulty === 'medium') {
+      let index = Math.floor(Math.random() * this.mediumSentences.length)
+      return this.mediumSentences[index]
+    } else if (this.difficulty === 'hard') {
+      let index = Math.floor(Math.random() * this.hardSentences.length)
+      return this.hardSentences[index]
+    } else {
+      console.log('something wrong happen when retrieving random sentences')
+      return
+    }
+  }
 }
