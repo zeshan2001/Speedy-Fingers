@@ -1,6 +1,6 @@
 import Level from './level.js'
 // ************************* Play Class *************************** //
-class Play extends Level {
+export default class Play extends Level {
   constructor(difficulty, time) {
     super(difficulty)
     this.time = time
