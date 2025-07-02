@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script defer type="module" src="./result.js"></script>
+    <link rel="stylesheet" href="./style.css" />
     <title>Speedy Fingers</title>
   </head>
   <body>
@@ -27,12 +28,19 @@
         <p id="check-text">mo s</p>
         <br />
         <label for="typing-test">Text here:</label>
-        <div>
-          <textarea
+        <div class="typing-container">
+          <!-- <textarea
             name="typing-test"
             id="typing-test"
             rows="10"
             cols="100"
+          ></textarea> -->
+          <!-- <div id="typing-test" contenteditable="true"></div> -->
+          <div id="highlight-output"></div>
+          <textarea
+            id="typing-test"
+            autocomplete="off"
+            autocorrect="off"
           ></textarea>
         </div>
       </div>

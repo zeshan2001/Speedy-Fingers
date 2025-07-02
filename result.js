@@ -4,7 +4,6 @@ const extractPara = new URLSearchParams(location.search)
 const time = extractPara.get('time')
 const difficulty = extractPara.get('difficulty')
 let randomCharList = []
-let userCharList = []
 
 const playObj = new Play(difficulty, parseInt(time))
 
@@ -12,40 +11,40 @@ const playObj = new Play(difficulty, parseInt(time))
 const timeElement = document.querySelector('#time')
 const levelElement = document.querySelector('#level')
 const randomTextElement = document.querySelector('#check-text').innerText
-const userTextElement = document.querySelector('#typing-test')
+let userTextElement = document.querySelector('#typing-test')
+const highlightOutput = document.getElementById('highlight-output')
 
 timeElement.innerText = playObj.getTime()
 levelElement.innerText = playObj.getLevel()
 randomCharList = randomTextElement.split('')
 
 // ********************* Methods ********************* //
-const compareChars = (charList) => {
-  let isCharsEqual
-  isCharsEqual = charList.map((el, index) => {
-    return el === randomCharList[index]
-  })
-  return isCharsEqual
-}
 
-const incorrectedChars = (charList) => {
-  let incorrectedChars
+// const compareChars = (userCharList) => {
+//   let isCharsEqual = userCharList.map((el, index) => {
+//     return el === randomCharList[index]
+//   })
+//   return isCharsEqual
+// }
 
-  incorrectedChars = charList.map((char, index) => {
-    return char === randomCharList[index] ? char : ''
+const highlightChar = (userCharList) => {
+  const highlighted = userCharList.map((char, index) => {
+    if (char === randomCharList[index]) {
+      return `<span style="color: green;">${char}</span>`
+    } else {
+      return `<span style="color: red;">${char || ' '}</span>`
+    }
   })
-  return incorrectedChars
+  return highlighted
 }
 
 const userTyping = () => {
-  let boolCharsList, incorrectCharsList
-  userCharList = userTextElement.value.split('')
+  const userCharList = userTextElement.value.split('')
+  const highlighted = highlightChar(userCharList)
+  console.log(highlighted)
 
-  boolCharsList = compareChars(userCharList)
-  incorrectCharsList = incorrectedChars(userCharList)
-
-  console.log(boolCharsList)
-  console.log(incorrectCharsList)
+  highlightOutput.innerHTML = highlighted.join('')
 }
 
 // ********************* Events ********************* //
-userTextElement.addEventListener('keyup', userTyping)
+userTextElement.addEventListener('input', userTyping)
