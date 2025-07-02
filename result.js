@@ -4,6 +4,7 @@ const extractPara = new URLSearchParams(location.search)
 const time = extractPara.get('time')
 const difficulty = extractPara.get('difficulty')
 let randomCharList = []
+let randomWordList = []
 
 const playObj = new Play(difficulty, parseInt(time))
 
@@ -11,12 +12,14 @@ const playObj = new Play(difficulty, parseInt(time))
 const timeElement = document.querySelector('#time')
 const levelElement = document.querySelector('#level')
 const randomTextElement = document.querySelector('#check-text').innerText
-let userTextElement = document.querySelector('#typing-test')
+const userTextElement = document.querySelector('#typing-test')
 const highlightOutput = document.getElementById('highlight-output')
 
 timeElement.innerText = playObj.getTime()
 levelElement.innerText = playObj.getLevel()
 randomCharList = randomTextElement.split('')
+randomWordList = randomTextElement.split(' ')
+console.log(randomCharList)
 
 // ********************* Methods ********************* //
 
@@ -38,10 +41,33 @@ const highlightChar = (userCharList) => {
   return highlighted
 }
 
+const countCorrectedWord = (wordList) => {
+  let count = 0
+  wordList.forEach((el, index) => {
+    if (el === randomWordList[index]) {
+      count++
+    }
+  })
+  return count
+}
+
+const countCorrectedChars = (userCharList) => {
+  let count = 0
+  userCharList.forEach((el, index) => {
+    if (el === randomCharList[index]) {
+      count++
+    }
+  })
+  return count
+}
+
 const userTyping = () => {
   const userCharList = userTextElement.value.split('')
   const highlighted = highlightChar(userCharList)
-  console.log(highlighted)
+  const userWordList = userTextElement.value.split(' ')
+
+  const countWords = countCorrectedWord(userWordList)
+  const countChars = countCorrectedChars(userCharList)
 
   highlightOutput.innerHTML = highlighted.join('')
 }
