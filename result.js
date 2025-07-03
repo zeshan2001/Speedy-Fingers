@@ -13,10 +13,13 @@ const timeElement = document.querySelector('#time')
 const levelElement = document.querySelector('#level')
 const speedWPMElement = document.querySelector('#speed-wpm')
 const accuracyElement = document.querySelector('#accuracy')
-const randomTextElement = document.querySelector('#check-text').innerText
+let randomTextElement = (document.querySelector('#check-text').innerText =
+  playObj.randomSentence()) // random text
 const userTextElement = document.querySelector('#typing-test')
 const highlightOutput = document.querySelector('#highlight-output')
 
+console.log(playObj.randomSentence())
+// randomTextElement = playObj.randomSentence()
 timeElement.innerText = `${playObj.getTime()}:00`
 levelElement.innerText = playObj.getLevel() // level
 randomCharList = randomTextElement.split('')
