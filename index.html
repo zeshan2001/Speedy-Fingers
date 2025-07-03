@@ -5,14 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- <script defer type="module" src="./script.js"></script> -->
     <script defer type="module" src="./index.js"></script>
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&family=Edu+QLD+Hand:wght@400..700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Pacifico&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
     <title>Speedy Fingers</title>
   </head>
   <body>
     <header>
       <div class="main-info">
-        <h1>TEST YOUR TYPING</h1>
-        <p>
+        <h1 class="bitcount-grid-double">TEST YOUR TYPING</h1>
+        <p class="edu-qld-hand">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo
           magnam necessitatibus saepe! Magni inventore libero eos accusantium
           facilis eveniet labore repellat nostrum quisquam animi, beatae, ea
@@ -22,7 +30,7 @@
     </header>
     <main>
       <div class="main-div">
-        <label for="">Select the time: </label>
+        <label for="" class="josefin-sans">Select the time: </label>
         <select name="time" id="time">
           <option value="1">1 minute</option>
           <option value="5">5 minute</option>
@@ -31,14 +39,14 @@
       </div>
 
       <div class="main-div">
-        <label for="">Select the difficulty: </label>
+        <label for="" class="josefin-sans">Select the difficulty: </label>
         <select name="difficulty" id="difficulty">
           <option value="easy">Easy</option>
           <option value="medium">medium</option>
           <option value="hard">Hard</option>
         </select>
       </div>
-      <div class="main-div">
+      <div class="btn-div">
         <button id="start-btn">Start</button>
       </div>
     </main>

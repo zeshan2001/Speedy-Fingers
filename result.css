@@ -1,0 +1,120 @@
+* {
+  margin: 0;
+}
+body {
+  background-color: rgba(0, 0, 0, 0.918);
+}
+header {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.results {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  background-color: aqua;
+  width: 120px;
+  height: 120px;
+}
+.results-text {
+  text-align: center;
+  margin-top: 15px;
+}
+
+#check-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 50px auto 0 auto;
+  padding: 20px;
+
+  background-color: rgb(201, 255, 237);
+  min-height: 200px;
+  width: 67%;
+}
+#input-div {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: cadetblue;
+  /* min-height: 300px; */
+  height: 300px;
+}
+
+/* .typing-container {
+  position: relative;
+  width: 600px;
+  height: 120px;
+}
+#highlight-output {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+
+  font-size: 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  padding: 15px;
+}
+
+#typing-test {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  color: transparent;
+  caret-color: black;
+  resize: none;
+  width: 100%;
+  height: 100%;
+
+  font-size: 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  padding: 15px;
+} */
+
+.typing-container {
+  position: relative;
+  width: 700px;
+  min-height: 150px;
+  font-size: 24px;
+  font-family: monospace;
+}
+
+#highlight-output {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: black;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  pointer-events: none;
+  z-index: 1;
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+}
+
+#typing-test {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 24px;
+  font-family: monospace;
+  border: 1px solid #ccc;
+  background: transparent;
+  width: 100%;
+  height: 100%;
+  color: transparent;
+  caret-color: black;
+  z-index: 2;
+  padding: 10px;
+  resize: none;
+}
