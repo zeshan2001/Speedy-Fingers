@@ -11,24 +11,42 @@ const playObj = new Play(difficulty, parseInt(time))
 // ********************* Cached elements references ********************* //
 const timeElement = document.querySelector('#time')
 const levelElement = document.querySelector('#level')
+const speedWPMElement = document.querySelector('#speed-wpm')
+const accuracyElement = document.querySelector('#accuracy')
 const randomTextElement = document.querySelector('#check-text').innerText
 const userTextElement = document.querySelector('#typing-test')
-const highlightOutput = document.getElementById('highlight-output')
+const highlightOutput = document.querySelector('#highlight-output')
 
-timeElement.innerText = playObj.getTime()
-levelElement.innerText = playObj.getLevel()
+timeElement.innerText = `${playObj.getTime()}:00`
+levelElement.innerText = playObj.getLevel() // level
 randomCharList = randomTextElement.split('')
 randomWordList = randomTextElement.split(' ')
-console.log(randomCharList)
 
 // ********************* Methods ********************* //
 
-// const compareChars = (userCharList) => {
-//   let isCharsEqual = userCharList.map((el, index) => {
-//     return el === randomCharList[index]
-//   })
-//   return isCharsEqual
-// }
+// https://docs.vultr.com/javascript/examples/create-countdown-timer
+const timeCountDown = (minutes) => {
+  const targetDate = new Date().getTime() + 1000 * 60 * minutes
+
+  const updateTimer = () => {
+    const now = new Date().getTime()
+    const difference = targetDate - now
+
+    if (difference < 0) {
+      userTextElement.readOnly = true
+      timeElement.innerHTML = 'STOP'
+      clearInterval(interval)
+      return
+    }
+
+    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60))
+    const seconds = Math.floor((difference % (1000 * 60)) / 1000)
+
+    timeElement.innerText = `${minutes}:${seconds}`
+  }
+
+  let interval = setInterval(updateTimer, 1000)
+}
 
 const highlightChar = (userCharList) => {
   const highlighted = userCharList.map((char, index) => {
@@ -60,15 +78,23 @@ const countCorrectedChars = (userCharList) => {
   })
   return count
 }
+let startTimer = 1
 
 const userTyping = () => {
+  startTimer--
+  if (startTimer === 0) {
+    timeCountDown(playObj.getTime()) // timer
+  }
+
   const userCharList = userTextElement.value.split('')
   const highlighted = highlightChar(userCharList)
-  const userWordList = userTextElement.value.split(' ')
 
-  const countWords = countCorrectedWord(userWordList)
   const countChars = countCorrectedChars(userCharList)
+  let speedWPM = playObj.calculateSpeedWPM(countChars, playObj.getTime()) // speed
+  let accuracy = playObj.calculateAccuracy(countChars, userCharList.length) // accuracy
 
+  speedWPMElement.innerText = speedWPM || 0
+  accuracyElement.innerText = accuracy || 0
   highlightOutput.innerHTML = highlighted.join('')
 }
 

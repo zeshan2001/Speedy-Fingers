@@ -42,11 +42,38 @@ export default class Play extends Level {
     timerID = setInterval(timer, 1000) //starts timer
   }
 
-  calculateSpeedWPM(countCorrectedWords, timeInMinutes) {
-    return countCorrectedWords / timeInMinutes
+  //   const timeCountDown = (minutes) => {
+  //   let id
+  //   let min = minutes
+  //   let sec = 0
+  //   const timer = () => {
+  //     if (min === 0 && sec === 0) {
+  //       clearInterval(id) // end timer
+  //     } else {
+  //       if (sec === 0) {
+  //         min--
+  //         sec = 60
+  //       }
+  //       sec--
+  //       console.log(`${min}:${sec}`) // console 1:59
+  //       timeElement.innerText = `${min}:${sec}`
+  //     }
+  //   }
+
+  //   id = setInterval(timer, 1000) // start timer
+  // }
+
+  // calculateSpeedWPM(countCorrectedWords, timeInMinutes) {
+  //   return countCorrectedWords / timeInMinutes
+  // }
+  calculateSpeedWPM(countCorrectedChars, timeInMinutes) {
+    // console.log(countCorrectedChars / 5)
+    return Math.floor((countCorrectedChars / 5 / timeInMinutes) * 10) / 10
+    // return countCorrectedChars / 5 / timeInMinutes
   }
 
-  calculateAccuracy(countCorrectedChars, timeInMinutes) {
-    return countCorrectedChars / timeInMinutes
+  calculateAccuracy(countCorrectedChars, totalChars) {
+    // return (countCorrectedChars / totalChars) * 100
+    return Math.floor((countCorrectedChars / totalChars) * 100 * 10) / 10
   }
 }
