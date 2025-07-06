@@ -66,6 +66,16 @@ export default class Play extends Level {
   // calculateSpeedWPM(countCorrectedWords, timeInMinutes) {
   //   return countCorrectedWords / timeInMinutes
   // }
+
+  countCorrectedChars(userCharList, randomCharList) {
+    let count = 0
+    userCharList.forEach((el, index) => {
+      if (el === randomCharList[index]) {
+        count++
+      }
+    })
+    return count
+  }
   calculateSpeedWPM(countCorrectedChars, timeInMinutes) {
     // console.log(countCorrectedChars / 5)
     return Math.floor((countCorrectedChars / 5 / timeInMinutes) * 10) / 10

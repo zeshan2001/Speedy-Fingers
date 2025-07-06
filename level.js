@@ -3,7 +3,7 @@ export default class Level {
   constructor(difficulty) {
     this.difficulty = difficulty
     this.easySentences = [
-      'this is this is this is this is this is this is this is this is this is this is this is this is this is this is this is this is this is this is this is this is this is this is this is this is this is this is this is this is this is this is this is this is this is this is this is this is this is this is '
+      'this is this is this is this is this is this is this is lorem im here to into my self from this hardihtn dgvdc dfikf jfbj cgtsj fifiovodkdngf cvd '
     ]
     this.mediumSentences = ['djncdc fjvfunv', 'lllllllllllllll']
     this.hardSentences = ['dddddddddddddddddddddd', 'gggggggggggggggggggg']

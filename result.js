@@ -18,7 +18,6 @@ let randomTextElement = (document.querySelector('#check-text').innerText =
 const userTextElement = document.querySelector('#typing-test')
 const highlightOutput = document.querySelector('#highlight-output')
 
-console.log(playObj.randomSentence())
 // randomTextElement = playObj.randomSentence()
 timeElement.innerText = `${playObj.getTime()}:00`
 levelElement.innerText = playObj.getLevel() // level
@@ -36,7 +35,7 @@ const timeCountDown = (minutes) => {
     const difference = targetDate - now
 
     if (difference < 0) {
-      userTextElement.readOnly = true
+      userTextElement.setAttribute('contenteditable', 'false')
       timeElement.innerHTML = 'STOP'
       clearInterval(interval)
       return
@@ -54,9 +53,9 @@ const timeCountDown = (minutes) => {
 const highlightChar = (userCharList) => {
   const highlighted = userCharList.map((char, index) => {
     if (char === randomCharList[index]) {
-      return `<span style="color: green;">${char}</span>`
+      return `<span style="color: green;">${randomCharList[index]}</span>`
     } else {
-      return `<span style="color: red;">${char || ' '}</span>`
+      return `<span style="color: red;">${randomCharList[index] || ' '}</span>`
     }
   })
   return highlighted
@@ -71,17 +70,18 @@ const countCorrectedWord = (wordList) => {
   })
   return count
 }
-
-const countCorrectedChars = (userCharList) => {
-  let count = 0
-  userCharList.forEach((el, index) => {
-    if (el === randomCharList[index]) {
-      count++
-    }
-  })
-  return count
-}
+// const countCorrectedChars = (userCharList) => {
+//   let count = 0
+//   userCharList.forEach((el, index) => {
+//     if (el === randomCharList[index]) {
+//       count++
+//     }
+//   })
+//   return count
+// }
 let startTimer = 1
+
+// ************ userTyping ************* //
 
 const userTyping = () => {
   startTimer--
@@ -89,12 +89,21 @@ const userTyping = () => {
     timeCountDown(playObj.getTime()) // timer
   }
 
-  const userCharList = userTextElement.value.split('')
+  const userCharList = userTextElement.textContent.split('')
+
   const highlighted = highlightChar(userCharList)
 
-  const countChars = countCorrectedChars(userCharList)
-  let speedWPM = playObj.calculateSpeedWPM(countChars, playObj.getTime()) // speed
-  let accuracy = playObj.calculateAccuracy(countChars, userCharList.length) // accuracy
+  const correctedChars = playObj.countCorrectedChars(
+    userCharList,
+    randomCharList
+  )
+  let speedWPM = playObj.calculateSpeedWPM(correctedChars, playObj.getTime()) // speed
+  let accuracy = playObj.calculateAccuracy(correctedChars, userCharList.length) // accuracy
+
+  //Add remaining (untyped) chars as default color
+  for (let i = userCharList.length; i < randomCharList.length; i++) {
+    highlighted.push(`<span style="color: gray;">${randomCharList[i]}</span>`)
+  }
 
   speedWPMElement.innerText = speedWPM || 0
   accuracyElement.innerText = accuracy || 0
@@ -102,4 +111,11 @@ const userTyping = () => {
 }
 
 // ********************* Events ********************* //
+addEventListener('load', () => {
+  let highlighted = []
+  for (let i = 0; i < randomCharList.length; i++) {
+    highlighted.push(`<span style="color: gray;">${randomCharList[i]}</span>`)
+  }
+  highlightOutput.innerHTML = highlighted.join('')
+})
 userTextElement.addEventListener('input', userTyping)

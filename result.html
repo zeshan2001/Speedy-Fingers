@@ -10,40 +10,31 @@
   <body>
     <header>
       <div>
-        <!-- <span id="time">60</span> -->
         <div id="time" class="results">60</div>
-        <!-- <h5>Timer</h5> -->
         <div class="results-text">Timer</div>
       </div>
       <div>
         <div id="level" class="results">easy</div>
-        <!-- <h5>difficulty</h5> -->
         <div class="results-text">difficulty</div>
       </div>
       <div>
         <div id="speed-wpm" class="results">35</div>
-        <!-- <h5>SpeedWPM</h5> -->
         <div class="results-text">SpeedWPM</div>
       </div>
       <div>
         <div id="accuracy" class="results">80%</div>
-        <!-- <h5>accuracy</h5> -->
         <div class="results-text">accuracy</div>
       </div>
     </header>
     <main>
-      <p id="check-text">mo s</p>
-
-      <div id="input-div">
-        <div class="typing-container">
-          <div id="highlight-output"></div>
-          <textarea
-            id="typing-test"
-            autocomplete="off"
-            autocorrect="off"
-          ></textarea>
-        </div>
+      <div id="passage-container">
+        <p id="passage"></p>
       </div>
+      <textarea
+        id="input"
+        placeholder="Start typing here..."
+        rows="4"
+      ></textarea>
     </main>
   </body>
 </html>
