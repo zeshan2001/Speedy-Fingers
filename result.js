@@ -7,6 +7,7 @@ const playObj = new Play(difficulty, parseInt(time))
 let currentPassage = playObj.randomSentence()
 let started = false
 let correctedChars = 0
+let interval = null
 
 // ********************* Cached elements references ********************* //
 const passageEl = document.querySelector('#passage')
@@ -15,6 +16,7 @@ const timeEl = document.querySelector('#time')
 const levelE = document.querySelector('#level')
 const speedWPMEl = document.querySelector('#speed-wpm')
 const accuracyEl = document.querySelector('#accuracy')
+const resetEl = document.querySelector('#restart')
 
 // ********************* Methods ********************* //
 
@@ -39,7 +41,7 @@ const startTimer = (minutes) => {
     timeEl.innerText = `${minutes}:${seconds}`
   }
 
-  let interval = setInterval(updateTimer, 1000)
+  interval = setInterval(updateTimer, 1000)
 }
 
 const render = () => {
@@ -68,6 +70,16 @@ const updateResults = () => {
     inputEl.value.length
   )
 }
+const reset = () => {
+  inputEl.value = ''
+  render()
+  clearInterval(interval)
+  started = false
+  timeEl.innerText = `0:60`
+  levelE.innerText = playObj.getLevel()
+  speedWPMEl.innerText = 0
+  accuracyEl.innerText = `0%`
+}
 
 const userTyping = () => {
   if (!started) {
@@ -81,7 +93,8 @@ const userTyping = () => {
 
 // ********************* Events ********************* //
 inputEl.addEventListener('input', userTyping)
-
+resetEl.addEventListener('click', reset)
 addEventListener('load', () => {
   render()
+  reset()
 })
