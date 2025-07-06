@@ -5,37 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script defer type="module" src="./result.js"></script>
     <link rel="stylesheet" href="./result.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&family=Edu+QLD+Hand:wght@400..700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Pacifico&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <title>Speedy Fingers</title>
   </head>
   <body>
-    <header>
-      <div>
-        <div id="time" class="results"></div>
-        <div class="results-text">Timer</div>
-      </div>
-      <div>
-        <div id="level" class="results"></div>
-        <div class="results-text">difficulty</div>
-      </div>
-      <div>
-        <div id="speed-wpm" class="results"></div>
-        <div class="results-text">SpeedWPM</div>
-      </div>
-      <div>
-        <div id="accuracy" class="results"></div>
-        <div class="results-text">accuracy</div>
-      </div>
-    </header>
-    <main>
-      <div id="passage-container">
-        <p id="passage"></p>
-      </div>
-      <textarea
-        id="input"
-        placeholder="Start typing here..."
-        rows="4"
-      ></textarea>
-      <button id="restart">Restart</button>
-    </main>
+    <div class="main-div">
+      <section class="sec-1">
+        <div id="passage-container">
+          <p id="passage"></p>
+        </div>
+        <textarea
+          id="input"
+          placeholder="Start typing here..."
+          rows="4"
+        ></textarea>
+        <!-- <button id="restart">Restart</button> -->
+      </section>
+      <section class="out-sec">
+        <h1 class="title">Speedy Fingers</h1>
+        <section class="sec-2">
+          <div class="timer-stat">
+            <div id="time" class="results josefin-sans"></div>
+          </div>
+          <div class="stat">
+            <div class="results-text josefin-sans">difficulty</div>
+            <div id="level" class="results josefin-sans"></div>
+          </div>
+          <div class="stat">
+            <div class="results-text josefin-sans">SpeedWPM</div>
+            <div id="speed-wpm" class="results josefin-sans"></div>
+          </div>
+          <div class="stat">
+            <div class="results-text josefin-sans">accuracy</div>
+            <div id="accuracy" class="results josefin-sans"></div>
+          </div>
+        </section>
+
+        <button id="restart">Restart</button>
+      </section>
+    </div>
   </body>
 </html>

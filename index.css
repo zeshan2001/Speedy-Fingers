@@ -2,19 +2,17 @@
   margin: 0;
 }
 body {
-  background-color: rgba(0, 0, 0, 0.918);
+  background-color: #f5f6fa;
 }
 
 .main-info {
-  width: 38%;
+  width: 50%;
   text-align: center;
-  margin: 40px auto 0 auto;
-  padding: 15px;
-
+  margin: 20px auto 0 auto;
+  padding: 20px;
   border-radius: 10px;
-  background-color: rgb(212, 255, 172);
-  border: 3px dotted rgb(179, 179, 0);
-  box-shadow: 1px 1px 10px 2px yellow;
+  background-color: white;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
 }
 .main-info > h1 {
   padding: 0 0 20px 0;
@@ -32,33 +30,22 @@ body {
   font-weight: 500;
 }
 main {
+  padding: 10px;
   display: grid;
   grid-template-rows: 100px 60px 100px;
   align-items: flex-end;
-  margin: 50px auto 20px auto;
-  width: 40%;
+  margin: 30px auto 20px auto;
+  width: 50%;
   min-height: 300px;
-
-  /* border: 1px solid; */
-  /* border-radius: 10px; */
-  /* background-color: lightgreen; */
-
+  background-color: white;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
   border-radius: 10px;
-  background-color: rgb(212, 255, 172);
-  border: 3px dotted rgb(0, 185, 0);
-  box-shadow: 1px 1px 10px 2px green;
-}
-
-.btn-div {
-  /* margin: 0 10px; */
-  margin-left: 10px;
 }
 .main-div {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 70%;
-  margin-left: 10px;
 }
 .josefin-sans {
   font-family: 'Josefin Sans', sans-serif;
@@ -80,49 +67,13 @@ main {
 #start-btn {
   padding: 10px 25px;
   border-radius: 5px;
-  border-color: green;
-  color: green;
-  /* margin-left: 10px; */
+  border-color: #008500;
+  background-color: white;
+  color: #008500;
+  font-weight: bold;
 }
 #start-btn:hover {
   background-color: green;
   color: white;
   cursor: pointer;
-}
-
-.typing-container {
-  position: relative;
-  width: 600px;
-  height: 120px;
-  font-size: 24px;
-  font-family: monospace;
-}
-
-#highlight-output {
-  position: absolute;
-  top: 0;
-  left: 0;
-  color: black;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  pointer-events: none;
-  z-index: 1;
-  padding: 10px;
-}
-
-#typing-test {
-  position: absolute;
-  top: 0;
-  left: 0;
-  font-size: 24px;
-  font-family: monospace;
-  border: 1px solid #ccc;
-  background: transparent;
-  width: 100%;
-  height: 100%;
-  color: transparent;
-  caret-color: black;
-  z-index: 2;
-  padding: 10px;
-  resize: none;
 }

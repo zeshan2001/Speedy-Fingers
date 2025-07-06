@@ -63,7 +63,11 @@ const render = () => {
 const updateResults = () => {
   const wordsTyped = inputEl.value.trim().split(/\s+/).length
   levelE.innerText = playObj.getLevel()
-  speedWPMEl.innerText = wordsTyped / playObj.getTime()
+  // speedWPMEl.innerText = wordsTyped / playObj.getTime()
+  speedWPMEl.innerText = playObj.calculateSpeedWPM(
+    wordsTyped,
+    playObj.getTime()
+  )
 
   accuracyEl.innerText = playObj.calculateAccuracy(
     correctedChars,
@@ -75,6 +79,7 @@ const reset = () => {
   render()
   clearInterval(interval)
   started = false
+  inputEl.disabled = false
   timeEl.innerText = `0:60`
   levelE.innerText = playObj.getLevel()
   speedWPMEl.innerText = 0
@@ -89,6 +94,10 @@ const userTyping = () => {
 
   render()
   updateResults()
+  if (inputEl.value.length >= currentPassage.length) {
+    clearInterval(interval)
+    inputEl.disabled = true
+  }
 }
 
 // ********************* Events ********************* //
