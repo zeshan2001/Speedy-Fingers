@@ -83,7 +83,8 @@ export default class Play extends Level {
   }
 
   calculateAccuracy(countCorrectedChars, totalChars) {
-    // return (countCorrectedChars / totalChars) * 100
-    return Math.floor((countCorrectedChars / totalChars) * 100 * 10) / 10
+    // Math.round((correctChars / totalTyped) * 100)
+    // return Math.floor((countCorrectedChars / totalChars) * 100 * 10) / 10
+    return Math.round((countCorrectedChars / totalChars) * 100)
   }
 }
