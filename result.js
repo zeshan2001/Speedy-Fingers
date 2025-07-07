@@ -1,8 +1,13 @@
 import Play from './play.js'
+import Dummy from './dummy.js'
 // ********************* Global variables ********************* //
 const extractPara = new URLSearchParams(location.search)
 const difficulty = extractPara.get('difficulty')
+const dummyData = new Dummy()
 const playObj = new Play(difficulty, 1)
+playObj.setEasyLevel(dummyData.easy)
+playObj.setMedLevel(dummyData.medium)
+playObj.setHardLevel(dummyData.hard)
 let currentPassage = playObj.randomSentence()
 let started = false
 let correctedChars = 0

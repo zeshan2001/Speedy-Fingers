@@ -3,15 +3,9 @@ export default class Play {
   constructor(difficulty, time) {
     this.difficulty = difficulty
     this.time = time
-    this.easySentences = [
-      'The quick brown fox jumps over the lazy dog.',
-      'Typing tests are a fun way to improve your speed.',
-      'Practice makes perfect when it comes to typing.',
-      'JavaScript powers interactive web applications.',
-      'Speedy Fingers helps you become a faster typist.'
-    ]
-    this.mediumSentences = ['djncdc fjvfunv', 'lllllllllllllll']
-    this.hardSentences = ['dddddddddddddddddddddd', 'gggggggggggggggggggg']
+    this.easySentences = []
+    this.mediumSentences = []
+    this.hardSentences = []
   }
 
   // ************************ Setters ************************ //
@@ -21,6 +15,15 @@ export default class Play {
   setTime(time) {
     this.time = time
   }
+  setEasyLevel(easySentences) {
+    this.easySentences = easySentences
+  }
+  setMedLevel(mediumSentences) {
+    this.mediumSentences = mediumSentences
+  }
+  setHardLevel(hardSentences) {
+    this.hardSentences = hardSentences
+  }
 
   // ************************ Getters ************************ //
   getLevel() {
@@ -28,6 +31,16 @@ export default class Play {
   }
   getTime() {
     return this.time
+  }
+
+  getEasyLevel() {
+    return this.easySentences
+  }
+  getMedLevel() {
+    return this.mediumSentences
+  }
+  getHardLevel() {
+    return this.hardSentences
   }
 
   // ************************ Methods ************************ //
