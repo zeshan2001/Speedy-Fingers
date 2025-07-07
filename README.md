@@ -27,11 +27,11 @@ The Speedy Fingers is an interactive typing test game that helps users evaluate 
 
 #### Home Page
 
-![Home Page](Home-page.png)
+![Play Page](image.png)
 
 #### Play Page
 
-![Play Page](Play-Page.png)
+![Play Page](image2.png)
 
 ---
 
@@ -74,10 +74,12 @@ The Speedy Fingers is an interactive typing test game that helps users evaluate 
 - Display results to the user.
 
 - Compare each typed character with the actual sentence in real-time:
-  - if the character is incorrect, Change its color to red
+  - if the character is incorrect, Change its color to red otherwise, green
 
 ---
 
 **_Credits_**
 
-TypingTest.com: [typingtest](https://www.typingtest.com/)
+TypingTest.com: [click here](https://www.typingtest.com/)
+
+docs.vultr.com: [click here](https://docs.vultr.com/javascript/examples/create-countdown-timer)

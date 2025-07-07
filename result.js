@@ -23,7 +23,7 @@ const accuracyEl = document.querySelector('#accuracy')
 const resetEl = document.querySelector('#restart')
 
 // ********************* Methods ********************* //
-// https://docs.vultr.com/javascript/examples/create-countdown-timer
+// source: https://docs.vultr.com/javascript/examples/create-countdown-timer
 const startTimer = (minutes) => {
   const targetDate = new Date().getTime() + 1000 * 60 * minutes
 
