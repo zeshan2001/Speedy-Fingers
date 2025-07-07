@@ -1,9 +1,8 @@
 import Play from './play.js'
 // ********************* Global variables ********************* //
 const extractPara = new URLSearchParams(location.search)
-const time = extractPara.get('time')
 const difficulty = extractPara.get('difficulty')
-const playObj = new Play(difficulty, parseInt(time))
+const playObj = new Play(difficulty, 1)
 let currentPassage = playObj.randomSentence()
 let started = false
 let correctedChars = 0
@@ -19,7 +18,6 @@ const accuracyEl = document.querySelector('#accuracy')
 const resetEl = document.querySelector('#restart')
 
 // ********************* Methods ********************* //
-
 // https://docs.vultr.com/javascript/examples/create-countdown-timer
 const startTimer = (minutes) => {
   const targetDate = new Date().getTime() + 1000 * 60 * minutes
@@ -27,20 +25,16 @@ const startTimer = (minutes) => {
   const updateTimer = () => {
     const now = new Date().getTime()
     const difference = targetDate - now
-
     if (difference < 0) {
       timeEl.innerHTML = 'STOP'
       inputEl.disabled = true
       clearInterval(interval)
       return
     }
-
     const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60))
     const seconds = Math.floor((difference % (1000 * 60)) / 1000)
-
     timeEl.innerText = `${minutes}:${seconds}`
   }
-
   interval = setInterval(updateTimer, 1000)
 }
 
@@ -60,22 +54,22 @@ const render = () => {
   }
   passageEl.innerHTML = highlighted
 }
+
 const updateResults = () => {
   const wordsTyped = inputEl.value.trim().split(/\s+/).length
   levelE.innerText = playObj.getLevel()
-  // speedWPMEl.innerText = wordsTyped / playObj.getTime()
   speedWPMEl.innerText = playObj.calculateSpeedWPM(
     wordsTyped,
     playObj.getTime()
   )
-
-  accuracyEl.innerText = playObj.calculateAccuracy(
-    correctedChars,
-    inputEl.value.length
-  )
+  accuracyEl.innerText = `${
+    playObj.calculateAccuracy(correctedChars, inputEl.value.length) || 0
+  }%`
 }
+
 const reset = () => {
   inputEl.value = ''
+  currentPassage = playObj.randomSentence()
   render()
   clearInterval(interval)
   started = false
@@ -94,6 +88,7 @@ const userTyping = () => {
 
   render()
   updateResults()
+
   if (inputEl.value.length >= currentPassage.length) {
     clearInterval(interval)
     inputEl.disabled = true

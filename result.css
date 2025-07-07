@@ -62,16 +62,6 @@ body {
 }
 
 #restart {
-  /* background: #4078c0;
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  padding: 10px 15px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: border 0.2s;
-  margin-top: 20px; */
-
   border-radius: 10px;
   padding: 10px 15px;
   font-size: 1rem;
@@ -83,8 +73,6 @@ body {
 }
 
 #restart:hover {
-  /* background: #273c75; */
-
   background-color: green;
   color: white;
   cursor: pointer;
