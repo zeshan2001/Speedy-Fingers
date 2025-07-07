@@ -1,5 +1,7 @@
 # Speedy Fingers
 
+[Play the Game](https://speedy-fingers.surge.sh/)
+
 ## Date: 6/29/2025
 
 ### By: Zeshan Ahmed
