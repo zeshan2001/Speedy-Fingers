@@ -83,3 +83,5 @@ The Speedy Fingers is an interactive typing test game that helps users evaluate 
 TypingTest.com: [click here](https://www.typingtest.com/)
 
 docs.vultr.com: [click here](https://docs.vultr.com/javascript/examples/create-countdown-timer)
+
+shecodes.io: [click here](https://www.shecodes.io/athena/27074-understanding-window-location-search-and-urlsearchparams-in-javascript)
