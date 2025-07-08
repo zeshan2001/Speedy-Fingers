@@ -41,14 +41,15 @@ The Speedy Fingers is an interactive typing test game that helps users evaluate 
 
 - Declare variables:
 
-  - minute (number)
+  - time (number)
   - difficulty (string)
-  - speedWPM (number)
-  - accuracy(number)
+  - easySentences (array)
+  - mediumSentences (array)
+  - hardSentences (array)
 
 - Once the user click start button:
 
-  - sssign (minute) and (difficulty) from user input.
+  - assign (difficulty) from user input.
   - redirect the user to the play page.
 
 - Display timer and difficulty on the page.

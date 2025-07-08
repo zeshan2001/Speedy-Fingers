@@ -4,7 +4,6 @@ import Dummy from './dummy.js'
 // source: https://www.shecodes.io/athena/27074-understanding-window-location-search-and-urlsearchparams-in-javascript
 const extractPara = new URLSearchParams(location.search)
 const difficulty = extractPara.get('difficulty')
-
 const dummyData = new Dummy()
 const playObj = new Play(difficulty, 1)
 playObj.setEasyLevel(dummyData.easy)
