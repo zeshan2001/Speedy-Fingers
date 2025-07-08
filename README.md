@@ -1,3 +1,8 @@
+<img src="./images/sp-fingers.gif" alt="Speedy Fingers" width="100%" height="300" />
+
+<br/>
+<br/>
+
 # Speedy Fingers
 
 [Play the Game](https://speedy-fingers.surge.sh/)
@@ -29,11 +34,11 @@ The Speedy Fingers is an interactive typing test game that helps users evaluate 
 
 #### Home Page
 
-![Play Page](image.png)
+![Home Page](./images/image.png)
 
 #### Play Page
 
-![Play Page](image2.png)
+![Play Page](./images/image2.png)
 
 ---
 
