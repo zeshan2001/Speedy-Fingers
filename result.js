@@ -5,11 +5,11 @@ import Dummy from './dummy.js'
 const extractPara = new URLSearchParams(location.search)
 const difficulty = extractPara.get('difficulty')
 const DummyData = new Dummy()
-const Play = new Play(difficulty, 1)
-Play.setEasyLevel(DummyData.easy)
-Play.setMedLevel(DummyData.medium)
-Play.setHardLevel(DummyData.hard)
-let currentPassage = Play.randomSentence()
+const PlayObj = new Play(difficulty, 1)
+PlayObj.setEasyLevel(DummyData.easy)
+PlayObj.setMedLevel(DummyData.medium)
+PlayObj.setHardLevel(DummyData.hard)
+let currentPassage = PlayObj.randomSentence()
 let started = false
 let correctedChars = 0
 let interval = null
@@ -63,29 +63,32 @@ const render = () => {
 
 const updateResults = () => {
   const wordsTyped = inputEl.value.trim().split(/\s+/).length
-  levelE.innerText = Play.getLevel()
-  speedWPMEl.innerText = Play.calculateSpeedWPM(wordsTyped, Play.getTime())
+  levelE.innerText = PlayObj.getLevel()
+  speedWPMEl.innerText = PlayObj.calculateSpeedWPM(
+    wordsTyped,
+    PlayObj.getTime()
+  )
   accuracyEl.innerText = `${
-    Play.calculateAccuracy(correctedChars, inputEl.value.length) || 0
+    PlayObj.calculateAccuracy(correctedChars, inputEl.value.length) || 0
   }%`
 }
 
 const reset = () => {
   inputEl.value = ''
-  currentPassage = Play.randomSentence()
+  currentPassage = PlayObj.randomSentence()
   render()
   clearInterval(interval)
   started = false
   inputEl.disabled = false
   timeEl.innerText = `0:60`
-  levelE.innerText = Play.getLevel()
+  levelE.innerText = PlayObj.getLevel()
   speedWPMEl.innerText = 0
   accuracyEl.innerText = `0%`
 }
 
 const userTyping = () => {
   if (!started) {
-    startTimer(Play.getTime())
+    startTimer(PlayObj.getTime())
     started = true
   }
 
