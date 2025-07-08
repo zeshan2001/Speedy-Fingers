@@ -44,11 +44,6 @@ export default class Play {
   }
 
   // ************************ Methods ************************ //
-  // calculateSpeedWPM(countCorrectedChars, timeInMinutes) {
-  //   // console.log(countCorrectedChars / 5)
-  //   return Math.floor((countCorrectedChars / 5 / timeInMinutes) * 10) / 10
-  //   // return countCorrectedChars / 5 / timeInMinutes
-  // }
   randomSentence() {
     if (this.difficulty === 'easy') {
       let index = Math.floor(Math.random() * this.easySentences.length)
@@ -60,7 +55,6 @@ export default class Play {
       let index = Math.floor(Math.random() * this.hardSentences.length)
       return this.hardSentences[index]
     } else {
-      console.log('something wrong happen when retrieving random sentences')
       return null
     }
   }
