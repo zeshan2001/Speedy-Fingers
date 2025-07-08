@@ -1,4 +1,4 @@
-<img src="./images/sp-fingers.gif" alt="Speedy Fingers" width="100%" height="300" />
+<img src="./images/sp-fingers.gif" alt="Speedy Fingers" width="100%" height="400px" />
 
 <br/>
 <br/>
