@@ -4,12 +4,12 @@ import Dummy from './dummy.js'
 // source: https://www.shecodes.io/athena/27074-understanding-window-location-search-and-urlsearchparams-in-javascript
 const extractPara = new URLSearchParams(location.search)
 const difficulty = extractPara.get('difficulty')
-const dummyData = new Dummy()
-const playObj = new Play(difficulty, 1)
-playObj.setEasyLevel(dummyData.easy)
-playObj.setMedLevel(dummyData.medium)
-playObj.setHardLevel(dummyData.hard)
-let currentPassage = playObj.randomSentence()
+const DummyData = new Dummy()
+const Play = new Play(difficulty, 1)
+Play.setEasyLevel(DummyData.easy)
+Play.setMedLevel(DummyData.medium)
+Play.setHardLevel(DummyData.hard)
+let currentPassage = Play.randomSentence()
 let started = false
 let correctedChars = 0
 let interval = null
@@ -63,32 +63,29 @@ const render = () => {
 
 const updateResults = () => {
   const wordsTyped = inputEl.value.trim().split(/\s+/).length
-  levelE.innerText = playObj.getLevel()
-  speedWPMEl.innerText = playObj.calculateSpeedWPM(
-    wordsTyped,
-    playObj.getTime()
-  )
+  levelE.innerText = Play.getLevel()
+  speedWPMEl.innerText = Play.calculateSpeedWPM(wordsTyped, Play.getTime())
   accuracyEl.innerText = `${
-    playObj.calculateAccuracy(correctedChars, inputEl.value.length) || 0
+    Play.calculateAccuracy(correctedChars, inputEl.value.length) || 0
   }%`
 }
 
 const reset = () => {
   inputEl.value = ''
-  currentPassage = playObj.randomSentence()
+  currentPassage = Play.randomSentence()
   render()
   clearInterval(interval)
   started = false
   inputEl.disabled = false
   timeEl.innerText = `0:60`
-  levelE.innerText = playObj.getLevel()
+  levelE.innerText = Play.getLevel()
   speedWPMEl.innerText = 0
   accuracyEl.innerText = `0%`
 }
 
 const userTyping = () => {
   if (!started) {
-    startTimer(playObj.getTime())
+    startTimer(Play.getTime())
     started = true
   }
 
